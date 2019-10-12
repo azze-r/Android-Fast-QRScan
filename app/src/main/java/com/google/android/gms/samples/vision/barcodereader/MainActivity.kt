@@ -47,6 +47,7 @@ class MainActivity : Activity(), View.OnClickListener {
     private val useFlash: CompoundButton? = null
     private var statusMessage: TextView? = null
     private var barcodeValue: WebView? = null
+    var flag = true
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -112,7 +113,6 @@ class MainActivity : Activity(), View.OnClickListener {
                 if (data != null) {
                     val barcode = data.getParcelableExtra<Barcode>(BarcodeCaptureActivity.BarcodeObject)
                     statusMessage!!.setText(R.string.barcode_success)
-                    Toast.makeText(this, barcode!!.displayValue, Toast.LENGTH_LONG).show()
                     Log.i("tryhard",barcode.displayValue)
 //                    barcodeValue!!.loadUrl(barcode.displayValue)
                     try {
