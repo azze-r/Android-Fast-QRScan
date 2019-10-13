@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.google.android.gms.samples.vision.barcodereader"
+    package="com.azz.android.gms.samples.vision.barcodereader"
     android:installLocation="auto" >
 
     <uses-feature android:name="android.hardware.camera" />
@@ -22,7 +22,7 @@
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="barcode" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.azze.android.gms.samples.vision.barcodereader.MainActivity"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".BarcodeCaptureActivity"
+        <activity android:name="com.azze.android.gms.samples.vision.barcodereader.BarcodeCaptureActivity"
             android:label="Read Barcode"/>
     </application>
 

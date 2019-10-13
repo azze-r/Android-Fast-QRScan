@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.android.gms.samples.vision.barcodereader.ui.camera;
+package com.azze.android.gms.samples.vision.barcodereader.ui.camera;
 
 import android.Manifest;
 import android.content.Context;

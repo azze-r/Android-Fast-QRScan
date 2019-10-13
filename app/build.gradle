@@ -7,11 +7,11 @@ android {
     buildToolsVersion "24.0.3"
 
     defaultConfig {
-        applicationId "com.google.android.gms.samples.vision.barcodereader"
+        applicationId "com.azz.android.gms.samples.vision.barcodereader"
         minSdkVersion 14
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 4
+        versionName "4.0"
     }
     buildTypes {
         release {

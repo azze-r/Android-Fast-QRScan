@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.android.gms.samples.vision.barcodereader
+package com.azze.android.gms.samples.vision.barcodereader
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -23,38 +23,16 @@ import android.app.Activity
 import android.util.Log
 import android.view.View
 import android.webkit.WebView
-import android.webkit.WebViewClient
 import android.widget.CompoundButton
 import android.widget.TextView
 import android.widget.Toast
 
 import com.google.android.gms.common.api.CommonStatusCodes
 import com.google.android.gms.vision.barcode.Barcode
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.net.Uri
 import java.lang.Exception
-import android.content.DialogInterface
-import android.content.DialogInterface.BUTTON_NEUTRAL
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
-
-
-
-
-
-
-
+import com.azz.android.gms.samples.vision.barcodereader.R
 
 
 /**
