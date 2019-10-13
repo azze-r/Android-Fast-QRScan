@@ -34,6 +34,27 @@ import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.net.Uri
 import java.lang.Exception
+import android.content.DialogInterface
+import android.content.DialogInterface.BUTTON_NEUTRAL
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
+
+
+
+
+
+
 
 
 /**
@@ -54,14 +75,8 @@ class MainActivity : Activity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        statusMessage = findViewById<View>(R.id.status_message) as TextView
-//        barcodeValue = findViewById<View>(R.id.barcode_value) as WebView
-//        barcodeValue!!.webViewClient = WebViewClient()
-//        barcodeValue!!.loadUrl("https://www.google.fr")
-//
-//        barcodeValue!!.settings.javaScriptEnabled = true
-
         findViewById<View>(R.id.read_barcode).setOnClickListener(this)
+
     }
 
     /**
@@ -80,58 +95,54 @@ class MainActivity : Activity(), View.OnClickListener {
 
     }
 
-    /**
-     * Called when an activity you launched exits, giving you the requestCode
-     * you started it with, the resultCode it returned, and any additional
-     * data from it.  The <var>resultCode</var> will be
-     * [.RESULT_CANCELED] if the activity explicitly returned that,
-     * didn't return any result, or crashed during its operation.
-     *
-     *
-     *
-     * You will receive this call immediately before onResume() when your
-     * activity is re-starting.
-     *
-     *
-     *
-     * @param requestCode The integer request code originally supplied to
-     * startActivityForResult(), allowing you to identify who this
-     * result came from.
-     * @param resultCode  The integer result code returned by the child activity
-     * through its setResult().
-     * @param data        An Intent, which can return result data to the caller
-     * (various data can be attached to Intent "extras").
-     * @see .startActivityForResult
-     *
-     * @see .createPendingResult
-     *
-     * @see .setResult
-     */
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == RC_BARCODE_CAPTURE) {
             if (resultCode == CommonStatusCodes.SUCCESS) {
                 if (data != null) {
                     val barcode = data.getParcelableExtra<Barcode>(BarcodeCaptureActivity.BarcodeObject)
-                    statusMessage!!.setText(R.string.barcode_success)
-                    Log.i("tryhard",barcode.displayValue)
-//                    barcodeValue!!.loadUrl(barcode.displayValue)
-                    try {
-                        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(barcode.displayValue))
-                        startActivity(browserIntent)
-                    }
-                    catch (e:Exception){
-                        Toast.makeText(this, "this file is not a pdf", Toast.LENGTH_LONG).show()
+                    if (barcode != null) {
+                        Log.i("tryhard", barcode.displayValue)
+                        val builder = AlertDialog.Builder(this)
+                        builder.setTitle("Code Bar Detected")
+                        builder.setMessage(barcode.displayValue)
+                        // add the buttons
+                        builder.setPositiveButton("share") { _, _ ->
+                            // do something like...
+                            val sendIntent: Intent = Intent().apply {
+                                action = Intent.ACTION_SEND
+                                putExtra(Intent.EXTRA_TEXT, barcode.displayValue)
+                                type = "text/plain"
+                            }
+                            val shareIntent = Intent.createChooser(sendIntent, null)
+                            startActivity(shareIntent)
+                        }
+                        builder.setNeutralButton("Open on browser") { _, _ ->
+                            val url = barcode.displayValue
+                            val i = Intent(Intent.ACTION_VIEW)
+                            i.data = Uri.parse(url)
+                            try {
+                                startActivity(i)
+                            } catch (e: Exception) {
+                                Toast.makeText(this, "can't open this url on browser", Toast.LENGTH_LONG).show()
+                            }
+                        }
+                        builder.setNegativeButton("Cancel", null)
 
-                    }
 
-                    Log.d(TAG, "Barcode read: " + barcode.displayValue)
+                        // create and show the alert dialog
+                        val dialog = builder.create()
+                        dialog.show()
+                    } else {
+                        statusMessage!!.setText(R.string.barcode_failure)
+                        Log.d(TAG, "No barcode captured, intent data is null")
+                    }
                 } else {
-                    statusMessage!!.setText(R.string.barcode_failure)
-                    Log.d(TAG, "No barcode captured, intent data is null")
+                    statusMessage!!.text = String.format(getString(R.string.barcode_error),
+                            CommonStatusCodes.getStatusCodeString(resultCode))
                 }
-            } else {
-                statusMessage!!.setText(String.format(getString(R.string.barcode_error),
-                        CommonStatusCodes.getStatusCodeString(resultCode)))
+            }
+            else{
+                Toast.makeText(this, "code bar null", Toast.LENGTH_LONG).show()
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)
