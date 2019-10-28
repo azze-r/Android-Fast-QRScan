@@ -111,11 +111,11 @@ class MainActivity : Activity(), View.OnClickListener {
                         val dialog = builder.create()
                         dialog.show()
                     } else {
-                        statusMessage!!.setText(R.string.barcode_failure)
+                        statusMessage?.setText(R.string.barcode_failure)
                         Log.d(TAG, "No barcode captured, intent data is null")
                     }
                 } else {
-                    statusMessage!!.text = String.format(getString(R.string.barcode_error),
+                    statusMessage?.text = String.format(getString(R.string.barcode_error),
                             CommonStatusCodes.getStatusCodeString(resultCode))
                 }
             }

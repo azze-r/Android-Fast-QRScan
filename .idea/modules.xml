@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidBarCodeReader - Copie.iml" filepath="$PROJECT_DIR$/AndroidBarCodeReader - Copie.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidQRPdf.iml" filepath="$PROJECT_DIR$/AndroidQRPdf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/AndroidQRPdf-app.iml" filepath="$PROJECT_DIR$/app/AndroidQRPdf-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
