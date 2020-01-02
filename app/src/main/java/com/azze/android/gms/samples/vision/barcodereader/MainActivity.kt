@@ -41,12 +41,7 @@ import com.azz.android.gms.samples.vision.barcodereader.R
  */
 class MainActivity : Activity(), View.OnClickListener {
 
-    // use a compound button so either checkbox or switch widgets work.
-    private val autoFocus: CompoundButton? = null
-    private val useFlash: CompoundButton? = null
     private var statusMessage: TextView? = null
-    private var barcodeValue: WebView? = null
-    var flag = true
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
