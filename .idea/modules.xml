@@ -10,6 +10,8 @@
       <module fileurl="file://$PROJECT_DIR$/DroidFastQR.iml" filepath="$PROJECT_DIR$/DroidFastQR.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/DroidFastQR-app.iml" filepath="$PROJECT_DIR$/app/DroidFastQR-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/search-DroidFastQR.iml" filepath="$PROJECT_DIR$/search-DroidFastQR.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/search-DroidFastQR-app.iml" filepath="$PROJECT_DIR$/app/search-DroidFastQR-app.iml" />
     </modules>
   </component>
 </project>
