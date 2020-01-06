@@ -28,9 +28,10 @@
   <TextView
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginBottom="80dp"
+      android:layout_marginBottom="32dp"
       android:text="Find and Scan your Bar Code"
       android:textSize="30sp"
+      android:gravity="center"
       app:layout_constraintBottom_toBottomOf="@+id/preview"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent" />
