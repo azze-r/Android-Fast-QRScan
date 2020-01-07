@@ -13,7 +13,7 @@
         android:fullBackupContent="false"
         android:hardwareAccelerated="true"
         android:icon="@drawable/icon"
-        android:label="MultiTrackerApp"
+        android:label="DroidFastQR"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:supportsRtl = "true"
         tools:ignore="GoogleAppIndexingWarning">
