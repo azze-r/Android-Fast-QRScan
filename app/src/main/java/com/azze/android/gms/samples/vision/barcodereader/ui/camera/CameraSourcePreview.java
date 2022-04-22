@@ -57,7 +57,7 @@ public class CameraSourcePreview extends ViewGroup {
             stop();
         }
 
-        mCameraSource = cameraSource;
+            mCameraSource = cameraSource;
 
         if (mCameraSource != null) {
             mStartRequested = true;

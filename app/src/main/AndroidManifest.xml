@@ -32,7 +32,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.azze.android.gms.samples.vision.barcodereader.BarcodeCaptureActivity"
+        <activity android:name="com.azze.android.gms.samples.vision.barcodereader.ui.barcode.BarcodeCaptureActivity"
             android:label="Read Barcode"/>
     </application>
 

@@ -22,8 +22,6 @@ import android.os.Bundle
 import android.app.Activity
 import android.util.Log
 import android.view.View
-import android.webkit.WebView
-import android.widget.CompoundButton
 import android.widget.TextView
 import android.widget.Toast
 
@@ -33,6 +31,7 @@ import android.net.Uri
 import java.lang.Exception
 import androidx.appcompat.app.AlertDialog
 import com.azz.android.gms.samples.vision.barcodereader.R
+import com.azze.android.gms.samples.vision.barcodereader.ui.barcode.BarcodeCaptureActivity
 
 
 /**
@@ -75,21 +74,12 @@ class MainActivity : Activity(), View.OnClickListener {
                     val barcode = data.getParcelableExtra<Barcode>(BarcodeCaptureActivity.BarcodeObject)
                     if (barcode != null) {
                         Log.i("tryhard", barcode.displayValue)
-                        val builder = AlertDialog.Builder(this)
+                        val builder = AlertDialog.Builder(this,R.style.MyDialogTheme)
                         builder.setTitle("Code Bar Detected")
                         builder.setMessage(barcode.displayValue)
                         // add the buttons
-                        builder.setPositiveButton("share") { _, _ ->
-                            // do something like...
-                            val sendIntent: Intent = Intent().apply {
-                                action = Intent.ACTION_SEND
-                                putExtra(Intent.EXTRA_TEXT, barcode.displayValue)
-                                type = "text/plain"
-                            }
-                            val shareIntent = Intent.createChooser(sendIntent, null)
-                            startActivity(shareIntent)
-                        }
-                        builder.setNeutralButton("Open on browser") { _, _ ->
+
+                        builder.setPositiveButton("Open") { _, _ ->
                             val url = barcode.displayValue
                             val i = Intent(Intent.ACTION_VIEW)
                             i.data = Uri.parse(url)
@@ -99,8 +89,17 @@ class MainActivity : Activity(), View.OnClickListener {
                                 Toast.makeText(this, "can't open this url on browser", Toast.LENGTH_LONG).show()
                             }
                         }
-                        builder.setNegativeButton("Cancel", null)
 
+                        builder.setNeutralButton("share") { _, _ ->
+                            // do something like...
+                            val sendIntent: Intent = Intent().apply {
+                                action = Intent.ACTION_SEND
+                                putExtra(Intent.EXTRA_TEXT, barcode.displayValue)
+                                type = "text/plain"
+                            }
+                            val shareIntent = Intent.createChooser(sendIntent, null)
+                            startActivity(shareIntent)
+                        }
 
                         // create and show the alert dialog
                         val dialog = builder.create()
