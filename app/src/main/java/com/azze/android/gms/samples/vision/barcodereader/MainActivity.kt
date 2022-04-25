@@ -20,6 +20,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.app.Activity
+import android.content.Context
 import android.util.Log
 import android.view.View
 import android.widget.TextView
@@ -28,10 +29,19 @@ import android.widget.Toast
 import com.google.android.gms.common.api.CommonStatusCodes
 import com.google.android.gms.vision.barcode.Barcode
 import android.net.Uri
+import android.view.animation.AnimationUtils
 import java.lang.Exception
 import androidx.appcompat.app.AlertDialog
 import com.azz.android.gms.samples.vision.barcodereader.R
 import com.azze.android.gms.samples.vision.barcodereader.ui.barcode.BarcodeCaptureActivity
+import android.animation.Animator
+
+import android.animation.AnimatorListenerAdapter
+
+import android.view.animation.LinearInterpolator
+
+
+
 
 
 /**
@@ -58,11 +68,27 @@ class MainActivity : Activity(), View.OnClickListener {
      */
     override fun onClick(v: View) {
         if (v.id == R.id.read_barcode) {
+
             // launch barcode activity.
-            val intent = Intent(this, BarcodeCaptureActivity::class.java)
+            val intent = Intent(applicationContext, BarcodeCaptureActivity::class.java)
             intent.putExtra(BarcodeCaptureActivity.AutoFocus, true)
             //            intent.putExtra(BarcodeCaptureActivity.UseFlash, useFlash.isChecked());
             startActivityForResult(intent, RC_BARCODE_CAPTURE)
+
+            /*
+            v.animate()
+                .rotationBy(360F)
+                .setDuration(500)
+                .setInterpolator(LinearInterpolator())
+                .setListener(object : AnimatorListenerAdapter() {
+                    override fun onAnimationEnd(animator: Animator) {
+                        v.rotationX = 0F
+                        v.rotationY = 0F
+
+
+                    }
+                })*/
+
         }
 
     }
