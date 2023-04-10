@@ -4,25 +4,18 @@
     package="com.azz.android.gms.samples.vision.barcodereader"
     android:installLocation="auto" >
 
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-
     <application
         android:allowBackup="true"
-        android:fullBackupContent="false"
-        android:hardwareAccelerated="true"
         android:icon="@drawable/icon"
-        android:label="Droid Fast QR"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:label="AI QRCode"
+        android:theme="@style/MyDialogTheme"
         android:supportsRtl = "true"
         tools:ignore="GoogleAppIndexingWarning">
+
         <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <meta-data
-            android:name="com.google.android.gms.vision.DEPENDENCIES"
-            android:value="barcode" />
+            android:name="com.google.mlkit.vision.DEPENDENCIES"
+            android:value="barcode_ui"/>
+
         <activity
             android:name="com.azze.android.gms.samples.vision.barcodereader.MainActivity"
             android:exported="true">
@@ -31,9 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.azze.android.gms.samples.vision.barcodereader.ui.barcode.BarcodeCaptureActivity"
-            android:label="Read Barcode"/>
     </application>
 
 </manifest>

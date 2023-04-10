@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:windowBackground">@drawable/dialog_bg</item>
+    <style name="MyDialogTheme" parent="Theme.MaterialComponents.Light">
+        <item name="android:statusBarColor">#000000</item>
+        <item name="colorPrimary">#0F9D58</item>
     </style>
-
 </resources>
